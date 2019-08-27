@@ -1,5 +1,4 @@
 {
-  "name": "react-image-upload-server",
   "version": "0.0.1",
   "description": "Image upload example with React",
   "main": "server.js",
@@ -10,7 +9,6 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "author": "jesse heaslip",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.19.0",
