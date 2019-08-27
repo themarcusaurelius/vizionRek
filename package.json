@@ -1,4 +1,5 @@
 {
+  "name": "vizion_rekognition",
   "version": "0.0.1",
   "description": "Image upload example with React",
   "main": "server.js",
