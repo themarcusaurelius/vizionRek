@@ -13,10 +13,10 @@ cloudinary.config({
 router.post('/', (req, res) => {
   const values = Object.values(req.files)
   const promises = values.map(image => cloudinary.uploader.upload(image.path, 
-    // { 
-    //   categorization: "aws_rek_tagging",
-    //   auto_tagging: 0.7  
-    //  }
+    { 
+      categorization: "aws_rek_tagging",
+      auto_tagging: 0.7  
+     }
     ))
   Promise
     .all(promises)
@@ -47,7 +47,7 @@ router.post('/', (req, res) => {
             "url": image[0].url,
             "secure_url": image[0].secure_url,
             "original_filename": image[0].original_filename,
-            //"results": image[0].info.categorization.aws_rek_tagging.data
+            "results": image[0].info.categorization.aws_rek_tagging.data
             }
         }, (err, res, status) => {
             console.log('Photo Uploaded TO Vizion.ai!');
