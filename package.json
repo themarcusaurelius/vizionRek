@@ -1,0 +1,29 @@
+{
+  "name": "react-image-upload-server",
+  "version": "0.0.1",
+  "description": "Image upload example with React",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "author": "jesse heaslip",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "cloudinary": "^1.14.0",
+    "concurrently": "^4.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "elasticsearch": "^16.3.0",
+    "express": "^4.17.1",
+    "express-form-data": "^2.0.10",
+    "get-json": "^1.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
