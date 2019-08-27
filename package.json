@@ -1,9 +1,6 @@
 {
   "name": "vizion_rekognition",
   "version": "0.0.1",
-  "engines": {
-    "node": "10.x"
-  },
   "description": "Image upload example with React",
   "main": "server.js",
   "scripts": {
