@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import Notifications, { notify } from 'react-notify-toast'
-import Spinner from './Spinner'
-import Images from './Images'
-import Buttons from './Buttons'
-import WakeUp from './WakeUp'
-import Footer from './Footer'
-import { API_URL } from './config'
-import './App.css'
+import React, { Component } from 'react';
+import Notifications, { notify } from 'react-notify-toast';
+import Spinner from './components/Spinner';
+import Images from './components/Images';
+import Buttons from './components/Buttons';
+import WakeUp from './components/WakeUp';
+import Footer from './components/Footer';
+import { API_URL } from './config/config';
+import './App.css';
 
 const toastColor = { 
   background: '#505050', 
