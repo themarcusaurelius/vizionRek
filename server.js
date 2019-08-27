@@ -1,5 +1,4 @@
-require('dotenv').config()
-
+//require('dotenv').config()
 const express = require('express');
 const path = require('path');
 const upload = require('./routes/api/upload');
@@ -16,7 +15,7 @@ app.use(express.json());
 
 app.use(cors({ 
   origin: CLIENT_ORIGIN 
-})) 
+}))
 
 app.use(formData.parse())
 
@@ -25,20 +24,16 @@ app.get('/wake-up', (req, res) => res.send('Good'))
 //Define Routes
 app.use('/api/upload', upload);
 
-//Serve Static assets in production
-//Configuration for Express to behave correctly in production environment
-if (process.env.NODE_ENV === 'production') {
-  //First - Making sure express will serve production assets - main.js, main.css, etc
-  app.use(express.static('client/build'));
-  //Second -Express will serve up the index.html file if it doesn't recognize the route
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-  }); 
-};
+
+// ... other app.use middleware 
+app.use(express.static(path.join(__dirname, "client", "build")))
+
+app.use(express.static('client/build'));
+//Second -Express will serve up the index.html file if it doesn't recognize the route
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+}); 
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(
-  PORT, () => 
-    console.log(`Server Running On ${PORT}`)
-)
+app.listen(PORT, () => console.log(`Server Running On ${PORT}`))
