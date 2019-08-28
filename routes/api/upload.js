@@ -29,7 +29,7 @@ router.post('/', (req, res) => {
         //console.log(image[0].info.categorization.aws_rek_tagging.data)
         client.index({  
             index: 'rekognition',
-            id: '1',
+            id: image[0].public_id,
             type: 'image',
             body: {
             "public_id": image[0].public_id,
