@@ -1,14 +1,15 @@
 var client = require('./connection.js');
 
 client.indices.getMapping({  
-    index: 'image',
-    type: 'image',
+    index: 'rekognition',
+    type: 'image'
   },
 function (error,response) {  
     if (error){
       console.log(error.message);
     }
     else {
-      console.log("Mappings:\n",response.gov.mappings.constituencies.properties);
+      console.log("Mappings:\n",response.rekognition.mappings.image.properties);
+      
     }
 });

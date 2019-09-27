@@ -76,6 +76,8 @@ export default class App extends Component {
         uploading: false, 
         images
       })
+
+      console.log(images[0])
     })
     .catch(err => {
       err.json().then(e => {
