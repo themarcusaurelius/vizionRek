@@ -46,17 +46,16 @@ router.post('/', (req, res) => {
           id: image[0].public_id,
           type: 'image',
           body: {
-            //"public_id": image[0].public_id,
-            //"resource_type": image[0].resource_type,
-            //"tags": image[0].tags,
             "created_at": image[0].created_at,
             "etag": image[0].tags,
             "url": image[0].url,
             "secure_url": image[0].secure_url,
             "results": image[0].info.categorization.aws_rek_tagging.data,
             "city": geoip[0].city,
-            "country": geoip[0].country,
-            "region": geoip[0].subdivisionIso,
+            "region": geoip[0].region_name,
+            "country": geoip[0].country_name,
+            "zip code": geoip[0].zip_code,
+            "time zone": geoip[0].time_zone,
             "geo_point": [ geoip[0].latitude, geoip[0].longitude ],
             "ipAdd": geoip[0].ip,
             "ip": geoip[0].ip,
@@ -66,7 +65,12 @@ router.post('/', (req, res) => {
             }
           },
         }, (err, res, status) => {
-            console.log('Photo Uploaded TO Vizion.ai!');
+            if (res.ok) {
+              console.log('Photo Uploaded To Vizion.ai!')
+            }
+
+            console.log(err)
+            //console.log("This is the data" + JSON.stringify(geoip[0]));
         })
       })
     })
