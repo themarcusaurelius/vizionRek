@@ -19,27 +19,26 @@ app.use(cors({
 }))
 
 app.use(formData.parse())
-app.use(bodyParser.urlencoded({ limit: '256kb', extended: true }))
+// app.use(bodyParser.urlencoded({ limit: '256kb', extended: true }))
 
-app.use(bodyParser.json({
-  limit: '256kb',
-  type: [
-    'application/x-www-form-urlencoded',
-    'text/plain',
-    'application/octet-stream',
-    'application/json',
-    'application/json; charset=utf-8',
-    'text/plain;charset=UTF-8',
-    'text/plain;charset=utf-8',
-    'text/html; charset=utf-8'
-  ]
-}))
+// app.use(bodyParser.json({
+//   limit: '256kb',
+//   type: [
+//     'application/x-www-form-urlencoded',
+//     'text/plain',
+//     'application/octet-stream',
+//     'application/json',
+//     'application/json; charset=utf-8',
+//     'text/plain;charset=UTF-8',
+//     'text/plain;charset=utf-8',
+//     'text/html; charset=utf-8'
+//   ]
+// }))
 
 app.get('/wake-up', (req, res) => res.send('Good'))
 
 //Define Routes
 app.use('/api/upload', upload);
-
 
 // ... other app.use middleware 
 if (process.env.NODE_ENV === 'production') {
