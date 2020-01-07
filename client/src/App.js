@@ -3,7 +3,7 @@ import Notifications, { notify } from 'react-notify-toast';
 import Spinner from './components/Spinner';
 import Images from './components/Images';
 import Buttons from './components/Buttons';
-import WakeUp from './components/WakeUp';
+//import WakeUp from './components/WakeUp';
 import Footer from './components/Footer';
 import { API_URL } from './config/config';
 import './App.css';
@@ -21,16 +21,16 @@ export default class App extends Component {
     images: []
   }
 
-  componentDidMount() {
-    fetch(`${API_URL}/wake-up`)
-      .then(res => {
-        if (res.ok) {
-          return this.setState({ loading: false })  
-        }
-        const msg = 'Something went wrong with Heroku' 
-        this.toast(msg, 'custom', 2000, toastColor)
-      })
-  }
+  // componentDidMount() {
+  //   fetch(`${API_URL}/wake-up`)
+  //     .then(res => {
+  //       if (res.ok) {
+  //         return this.setState({ loading: false })  
+  //       }
+  //       const msg = 'Something went wrong with Heroku' 
+  //       this.toast(msg, 'custom', 2000, toastColor)
+  //     })
+  // }
 
   toast = notify.createShowQueue()
 
@@ -101,12 +101,12 @@ export default class App extends Component {
   }
   
   render() {
-    const { loading, uploading, images } = this.state
+    const { uploading, images } = this.state
     
     const content = () => {
       switch(true) {
-        case loading:
-          return <WakeUp />
+        // case loading:
+        //   return <WakeUp />
         case uploading:
           return <Spinner />
         case images.length > 0:
